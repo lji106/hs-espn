@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Jake Morrison – Shepaug Valley Athletics</title>
+    <style>
+      * { margin: 0; padding: 0; box-sizing: border-box; }
+
+      body { font-family: Arial, sans-serif; background-color: #0a0e1a; color: #fff; }
+
+      .top-bar { background-color: #060912; padding: 6px 32px; font-size: 12px; color: #888; letter-spacing: 1px; text-transform: uppercase; }
+
+      nav { background-color: #1a2a5e; display: flex; align-items: center; padding: 0 32px; border-bottom: 3px solid #fff; position: sticky; top: 0; z-index: 100; }
+
+      .nav-logo { font-size: 22px; font-weight: 900; letter-spacing: 2px; text-transform: uppercase; color: #fff; padding: 14px 0; margin-right: 40px; white-space: nowrap; text-decoration: none; }
+      .nav-logo span { color: #7a9fd4; }
+
+      .nav-links { display: flex; list-style: none; gap: 4px; }
+      .nav-links a { color: #ccc; text-decoration: none; font-size: 13px; font-weight: bold; text-transform: uppercase; letter-spacing: 1px; padding: 18px 14px; display: block; border-bottom: 3px solid transparent; margin-bottom: -3px; transition: color 0.2s; }
+      .nav-links a:hover { color: #fff; border-bottom-color: #fff; }
+
+      /* ── PLAYER HEADER ── */
+      .player-header { background: linear-gradient(135deg, #0d1635 0%, #1a2a5e 60%, #0a0e1a 100%); padding: 48px 32px; border-bottom: 1px solid #1e3070; display: flex; align-items: center; gap: 40px; }
+      .player-number { font-size: 96px; font-weight: 900; color: #1e3070; line-height: 1; min-width: 140px; text-align: center; letter-spacing: -4px; }
+      .player-info { flex: 1; }
+      .breadcrumb { font-size: 12px; color: #7a9fd4; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 10px; }
+      .breadcrumb a { color: #7a9fd4; text-decoration: none; }
+      .breadcrumb a:hover { color: #fff; }
+      .player-info h1 { font-size: 48px; font-weight: 900; text-transform: uppercase; letter-spacing: 2px; line-height: 1; }
+      .player-meta { display: flex; gap: 24px; margin-top: 12px; flex-wrap: wrap; }
+      .meta-item { font-size: 13px; color: #888; text-transform: uppercase; letter-spacing: 1px; }
+      .meta-item span { color: #7a9fd4; font-weight: bold; }
+
+      /* ── CONTENT ── */
+      .content { padding: 40px 32px; }
+
+      .stat-cards { display: grid; grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); gap: 12px; margin-bottom: 40px; }
+      .stat-card { background-color: #111827; border: 1px solid #1e3070; border-top: 3px solid #1a2a5e; border-radius: 6px; padding: 20px 16px; text-align: center; }
+      .stat-card .stat-value { font-size: 36px; font-weight: 900; line-height: 1; }
+      .stat-card .stat-label { font-size: 11px; text-transform: uppercase; letter-spacing: 2px; color: #7a9fd4; margin-top: 6px; }
+
+      .section-header { display: flex; align-items: center; gap: 16px; margin-bottom: 20px; }
+      .section-label { font-size: 11px; font-weight: bold; text-transform: uppercase; letter-spacing: 3px; color: #fff; background-color: #1a2a5e; padding: 5px 12px; border-radius: 3px; white-space: nowrap; }
+      .section-divider { flex: 1; height: 1px; background-color: #1e3070; }
+
+      table { width: 100%; border-collapse: collapse; font-size: 14px; }
+      thead tr { background-color: #1a2a5e; text-transform: uppercase; font-size: 11px; letter-spacing: 1px; color: #7a9fd4; }
+      th, td { padding: 12px 16px; text-align: left; border-bottom: 1px solid #1e3070; }
+      tbody tr:hover { background-color: #111827; }
+      td.result-win { color: #4caf80; font-weight: bold; }
+      td.result-loss { color: #cf6679; font-weight: bold; }
+
+      footer { background-color: #060912; border-top: 1px solid #1e3070; padding: 24px 32px; text-align: center; color: #555; font-size: 13px; }
+    </style>
+  </head>
+  <body>
+
+    <div class="top-bar">Shepaug Valley High School &mdash; Washington, CT</div>
+
+    <nav>
+      <a href="../index.html" class="nav-logo">Spartans <span>Athletics</span></a>
+      <ul class="nav-links">
+        <li><a href="../index.html">Home</a></li>
+        <li><a href="#">Fall</a></li>
+        <li><a href="#">Winter</a></li>
+        <li><a href="#">Spring</a></li>
+        <li><a href="#">Scores</a></li>
+        <li><a href="#">Standings</a></li>
+      </ul>
+    </nav>
+
+    <div class="player-header">
+      <div class="player-number">#10</div>
+      <div class="player-info">
+        <div class="breadcrumb">
+          <a href="../index.html">Home</a> &rsaquo;
+          <a href="../teams/boys-soccer.html">Boys Soccer</a> &rsaquo;
+          Jake Morrison
+        </div>
+        <h1>Jake Morrison</h1>
+        <div class="player-meta">
+          <div class="meta-item">Sport <span>Boys Soccer</span></div>
+          <div class="meta-item">Position <span>Forward</span></div>
+          <div class="meta-item">Season <span>Fall 2025</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="content">
+
+      <div class="stat-cards">
+        <div class="stat-card"><div class="stat-value" id="stat-goals">—</div><div class="stat-label">Goals</div></div>
+        <div class="stat-card"><div class="stat-value" id="stat-assists">—</div><div class="stat-label">Assists</div></div>
+        <div class="stat-card"><div class="stat-value" id="stat-points">—</div><div class="stat-label">Points</div></div>
+        <div class="stat-card"><div class="stat-value" id="stat-games">—</div><div class="stat-label">Games</div></div>
+      </div>
+
+      <div class="section-header">
+        <span class="section-label">Game Log</span>
+        <div class="section-divider"></div>
+      </div>
+      <table>
+        <thead>
+          <tr><th>Date</th><th>Opponent</th><th>Result</th><th>Goals</th><th>Assists</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Sep 5</td><td>vs. Nonnewaug</td><td class="result-win">W 3–1</td><td>2</td><td>1</td></tr>
+          <tr><td>Sep 9</td><td>@ Housatonic</td><td class="result-win">W 2–0</td><td>1</td><td>1</td></tr>
+          <tr><td>Sep 14</td><td>vs. Wamogo</td><td class="result-loss">L 1–2</td><td>1</td><td>0</td></tr>
+          <tr><td>Sep 18</td><td>@ Thomaston</td><td class="result-win">W 4–2</td><td>3</td><td>1</td></tr>
+          <tr><td>Sep 23</td><td>vs. Nonnewaug</td><td class="result-win">W 2–1</td><td>2</td><td>0</td></tr>
+          <tr><td>Sep 28</td><td>@ Wamogo</td><td class="result-loss">L 0–3</td><td>0</td><td>0</td></tr>
+          <tr><td>Oct 3</td><td>vs. Housatonic</td><td class="result-win">W 1–0</td><td>1</td><td>0</td></tr>
+          <tr><td>Oct 10</td><td>@ Thomaston</td><td class="result-loss">L 2–3</td><td>2</td><td>1</td></tr>
+        </tbody>
+      </table>
+
+    </div>
+
+    <footer>
+      &copy; 2026 Shepaug Valley High School Athletics &bull; Washington, CT
+    </footer>
+
+  <script>
+    const SUPABASE_URL = 'https://jaanyjqjdjgwwpomzwrv.supabase.co';
+    const SUPABASE_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImphYW55anFqZGpnd3dwb216d3J2Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODE3MjMzODMsImV4cCI6MjA5NzI5OTM4M30.Qa5gJ04FbU5cmUIpOElx1yX27jeOxyeINm29xQjdYMM';
+
+    async function loadPlayer() {
+      const url = new URL(`${SUPABASE_URL}/rest/v1/players`);
+      url.searchParams.set('name', 'eq.Jake Morrison');
+      url.searchParams.set('sport', 'eq.Boys Soccer');
+      url.searchParams.set('season', 'eq.2025');
+
+      const res = await fetch(url, {
+        headers: {
+          'apikey': SUPABASE_KEY,
+          'Authorization': `Bearer ${SUPABASE_KEY}`
+        }
+      });
+      const data = await res.json();
+      const player = data[0];
+
+      if (player) {
+        document.getElementById('stat-goals').textContent = player.goals;
+        document.getElementById('stat-assists').textContent = player.assists;
+        document.getElementById('stat-points').textContent = player.goals + player.assists;
+        document.getElementById('stat-games').textContent = player.games;
+      }
+    }
+
+    loadPlayer();
+  </script>
+  </body>
+</html>

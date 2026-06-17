@@ -44,3 +44,7 @@ Each player page will show sport-specific stats (e.g. points/rebounds for basket
 ## Development
 
 No build step — open `index.html` directly in a browser or use VS Code Live Server. No package manager or test runner is configured yet.
+
+## End of Session Protocol
+
+At the end of every working session, run a `git add . && git commit && git push` to save all progress to GitHub. A session is over when the user says something like "done for today", "good work", "see you later", or the exact phrase **"Good work today"**.

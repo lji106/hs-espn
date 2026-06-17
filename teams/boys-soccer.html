@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Boys Soccer – Shepaug Valley Athletics</title>
+    <style>
+      * { margin: 0; padding: 0; box-sizing: border-box; }
+
+      body {
+        font-family: Arial, sans-serif;
+        background-color: #0a0e1a;
+        color: #fff;
+      }
+
+      /* ── TOP BAR ── */
+      .top-bar {
+        background-color: #060912;
+        padding: 6px 32px;
+        font-size: 12px;
+        color: #888;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+      }
+
+      /* ── NAVBAR ── */
+      nav {
+        background-color: #1a2a5e;
+        display: flex;
+        align-items: center;
+        padding: 0 32px;
+        border-bottom: 3px solid #fff;
+        position: sticky;
+        top: 0;
+        z-index: 100;
+      }
+
+      .nav-logo {
+        font-size: 22px;
+        font-weight: 900;
+        letter-spacing: 2px;
+        text-transform: uppercase;
+        color: #fff;
+        padding: 14px 0;
+        margin-right: 40px;
+        white-space: nowrap;
+        text-decoration: none;
+      }
+
+      .nav-logo span { color: #7a9fd4; }
+
+      .nav-links {
+        display: flex;
+        list-style: none;
+        gap: 4px;
+      }
+
+      .nav-links a {
+        color: #ccc;
+        text-decoration: none;
+        font-size: 13px;
+        font-weight: bold;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        padding: 18px 14px;
+        display: block;
+        border-bottom: 3px solid transparent;
+        margin-bottom: -3px;
+        transition: color 0.2s;
+      }
+
+      .nav-links a:hover { color: #fff; border-bottom-color: #fff; }
+
+      /* ── TEAM HEADER ── */
+      .team-header {
+        background: linear-gradient(135deg, #0d1635 0%, #1a2a5e 60%, #0a0e1a 100%);
+        padding: 48px 32px;
+        border-bottom: 1px solid #1e3070;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 32px;
+      }
+
+      .breadcrumb {
+        font-size: 12px;
+        color: #7a9fd4;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        margin-bottom: 10px;
+      }
+
+      .breadcrumb a {
+        color: #7a9fd4;
+        text-decoration: none;
+      }
+
+      .breadcrumb a:hover { color: #fff; }
+
+      .team-header h1 {
+        font-size: 42px;
+        font-weight: 900;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        line-height: 1.05;
+      }
+
+      .team-header h1 span { color: #7a9fd4; }
+
+      .team-header .season-tag {
+        font-size: 12px;
+        color: #aaa;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        margin-top: 8px;
+      }
+
+      .record-box {
+        background-color: #1a2a5e;
+        border: 2px solid #7a9fd4;
+        border-radius: 12px;
+        padding: 24px 40px;
+        text-align: center;
+        flex-shrink: 0;
+      }
+
+      .record-box .record-label {
+        font-size: 11px;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        color: #7a9fd4;
+        margin-bottom: 8px;
+      }
+
+      .record-box .record {
+        font-size: 40px;
+        font-weight: 900;
+      }
+
+      .record-box .record-sub {
+        font-size: 12px;
+        color: #888;
+        margin-top: 4px;
+      }
+
+      /* ── CONTENT ── */
+      .content {
+        padding: 40px 32px;
+        display: grid;
+        grid-template-columns: 1fr 320px;
+        gap: 32px;
+      }
+
+      /* ── SECTION HEADERS ── */
+      .section-header {
+        display: flex;
+        align-items: center;
+        gap: 16px;
+        margin-bottom: 20px;
+      }
+
+      .section-label {
+        font-size: 11px;
+        font-weight: bold;
+        text-transform: uppercase;
+        letter-spacing: 3px;
+        color: #fff;
+        background-color: #1a2a5e;
+        padding: 5px 12px;
+        border-radius: 3px;
+        white-space: nowrap;
+      }
+
+      .section-divider {
+        flex: 1;
+        height: 1px;
+        background-color: #1e3070;
+      }
+
+      /* ── ROSTER TABLE ── */
+      .roster-block { margin-bottom: 40px; }
+
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        font-size: 14px;
+      }
+
+      thead tr {
+        background-color: #1a2a5e;
+        text-transform: uppercase;
+        font-size: 11px;
+        letter-spacing: 1px;
+        color: #7a9fd4;
+      }
+
+      th, td {
+        padding: 12px 16px;
+        text-align: left;
+        border-bottom: 1px solid #1e3070;
+      }
+
+      td:first-child { color: #888; font-size: 13px; }
+
+      .player-name {
+        color: #fff;
+        font-weight: bold;
+        text-decoration: none;
+      }
+
+      .player-name:hover { color: #7a9fd4; }
+
+      tbody tr:hover { background-color: #111827; }
+
+      /* ── SCHEDULE ── */
+      .schedule-list {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+      }
+
+      .game-row {
+        background-color: #111827;
+        border: 1px solid #1e3070;
+        border-left: 4px solid #1a2a5e;
+        border-radius: 6px;
+        padding: 14px 18px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        font-size: 14px;
+      }
+
+      .game-row.win { border-left-color: #2a7a4b; }
+      .game-row.loss { border-left-color: #7a2a2a; }
+      .game-row.upcoming { border-left-color: #7a9fd4; }
+
+      .game-opponent { font-weight: bold; }
+      .game-date { color: #888; font-size: 12px; margin-top: 2px; }
+
+      .game-result {
+        font-weight: bold;
+        font-size: 15px;
+        text-align: right;
+      }
+
+      .game-result.win { color: #4caf80; }
+      .game-result.loss { color: #cf6679; }
+      .game-result.upcoming { color: #7a9fd4; font-size: 13px; }
+
+      /* ── SEASON TABS ── */
+      .season-tabs {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        padding: 0 32px;
+        background-color: #0d1230;
+        border-bottom: 1px solid #1e3070;
+      }
+
+      .season-tabs .tabs-label {
+        font-size: 11px;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        color: #555;
+        margin-right: 8px;
+        padding: 14px 0;
+      }
+
+      .tab-btn {
+        background: none;
+        border: none;
+        color: #888;
+        font-size: 13px;
+        font-weight: bold;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        padding: 14px 16px;
+        cursor: pointer;
+        border-bottom: 3px solid transparent;
+        margin-bottom: -1px;
+        transition: color 0.2s;
+      }
+
+      .tab-btn:hover { color: #fff; }
+
+      .tab-btn.active {
+        color: #fff;
+        border-bottom-color: #7a9fd4;
+      }
+
+      /* ── FOOTER ── */
+      footer {
+        background-color: #060912;
+        border-top: 1px solid #1e3070;
+        padding: 24px 32px;
+        text-align: center;
+        color: #555;
+        font-size: 13px;
+      }
+    </style>
+  </head>
+  <body>
+
+    <div class="top-bar">Shepaug Valley High School &mdash; Washington, CT</div>
+
+    <nav>
+      <a href="../index.html" class="nav-logo">Spartans <span>Athletics</span></a>
+      <ul class="nav-links">
+        <li><a href="../index.html">Home</a></li>
+        <li><a href="#">Fall</a></li>
+        <li><a href="#">Winter</a></li>
+        <li><a href="#">Spring</a></li>
+        <li><a href="#">Scores</a></li>
+        <li><a href="#">Standings</a></li>
+      </ul>
+    </nav>
+
+    <div class="team-header">
+      <div>
+        <div class="breadcrumb"><a href="../index.html">Home</a> &rsaquo; Fall &rsaquo; Boys Soccer</div>
+        <h1>Boys <span>Soccer</span></h1>
+        <div class="season-tag">Fall Season &bull; Shepaug Valley Spartans</div>
+      </div>
+      <div class="record-box">
+        <div class="record-label">Record</div>
+        <div class="record" id="active-record">—</div>
+        <div class="record-sub" id="active-season-label">2025 Season</div>
+      </div>
+    </div>
+
+    <!-- SEASON TABS -->
+    <div class="season-tabs">
+      <span class="tabs-label">Season</span>
+      <button class="tab-btn active" onclick="switchSeason(2025, this)">2025</button>
+      <button class="tab-btn" onclick="switchSeason(2024, this)">2024</button>
+    </div>
+
+    <div class="content">
+      <div class="roster-block">
+        <div class="section-header">
+          <span class="section-label">Roster</span>
+          <div class="section-divider"></div>
+        </div>
+        <table>
+          <thead>
+            <tr><th>#</th><th>Player</th><th>Pos</th><th>Goals</th><th>Assists</th><th>GP</th></tr>
+          </thead>
+          <tbody id="roster-body">
+            <tr><td colspan="6" style="text-align:center;color:#555;padding:24px;">Loading...</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div>
+        <div class="section-header">
+          <span class="section-label">Schedule</span>
+          <div class="section-divider"></div>
+        </div>
+        <div class="schedule-list" id="schedule-list">
+          <div style="color:#555;font-size:14px;padding:16px 0;">Loading...</div>
+        </div>
+      </div>
+    </div>
+
+    <footer>
+      &copy; 2026 Shepaug Valley High School Athletics &bull; Washington, CT
+    </footer>
+
+  <script>
+    const SUPABASE_URL = 'https://jaanyjqjdjgwwpomzwrv.supabase.co';
+    const SUPABASE_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImphYW55anFqZGpnd3dwb216d3J2Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODE3MjMzODMsImV4cCI6MjA5NzI5OTM4M30.Qa5gJ04FbU5cmUIpOElx1yX27jeOxyeINm29xQjdYMM';
+
+    const cache = {};
+
+    const posAbbr = { 'Forward': 'FWD', 'Goalkeeper': 'GK', 'Midfielder': 'MID', 'Defender': 'DEF' };
+
+    async function supabaseFetch(table, params) {
+      const url = new URL(`${SUPABASE_URL}/rest/v1/${table}`);
+      Object.entries(params).forEach(([k, v]) => url.searchParams.set(k, v));
+      const res = await fetch(url, {
+        headers: {
+          'apikey': SUPABASE_KEY,
+          'Authorization': `Bearer ${SUPABASE_KEY}`
+        }
+      });
+      return res.json();
+    }
+
+    async function loadSeason(year) {
+      if (cache[year]) return cache[year];
+      const [players, games] = await Promise.all([
+        supabaseFetch('players', { sport: 'eq.Boys Soccer', season: `eq.${year}`, order: 'goals.desc' }),
+        supabaseFetch('schedule', { sport: 'eq.Boys Soccer', season: `eq.${year}`, order: 'date.asc' })
+      ]);
+      cache[year] = { players, games };
+      return cache[year];
+    }
+
+    function computeRecord(games) {
+      const w = games.filter(g => g.result === 'W').length;
+      const l = games.filter(g => g.result === 'L').length;
+      return `${w}–${l}`;
+    }
+
+    function renderRoster(players, year) {
+      const tbody = document.getElementById('roster-body');
+      if (!players.length) {
+        tbody.innerHTML = '<tr><td colspan="6" style="text-align:center;color:#555;padding:24px;">No roster data available.</td></tr>';
+        return;
+      }
+      tbody.innerHTML = players.map(p => {
+        const pos = posAbbr[p.position] || p.position || '—';
+        const isLinked = p.name === 'Jake Morrison' && year === 2025;
+        const nameHtml = isLinked
+          ? `<a href="../players/jake-morrison.html" class="player-name">${p.name}</a>`
+          : `<span class="player-name">${p.name}</span>`;
+        return `<tr>
+          <td>${p.number ?? '—'}</td>
+          <td>${nameHtml}</td>
+          <td>${pos}</td>
+          <td>${p.goals ?? 0}</td>
+          <td>${p.assists ?? 0}</td>
+          <td>${p.games ?? 0}</td>
+        </tr>`;
+      }).join('');
+    }
+
+    function renderSchedule(games) {
+      const list = document.getElementById('schedule-list');
+      if (!games.length) {
+        list.innerHTML = '<div style="color:#555;font-size:14px;padding:16px 0;">No schedule data available.</div>';
+        return;
+      }
+      list.innerHTML = games.map(g => {
+        const cls = g.result === 'W' ? 'win' : g.result === 'L' ? 'loss' : 'upcoming';
+        const loc = g.home_away === 'Home' ? 'vs.' : '@';
+        const score = g.our_score !== null ? `${g.result} ${g.our_score}–${g.their_score}` : 'TBD';
+        const date = new Date(g.date + 'T00:00:00').toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' });
+        return `<div class="game-row ${cls}">
+          <div>
+            <div class="game-opponent">${loc} ${g.opponent}</div>
+            <div class="game-date">${date}</div>
+          </div>
+          <div class="game-result ${cls}">${score}</div>
+        </div>`;
+      }).join('');
+    }
+
+    async function switchSeason(year, btn) {
+      document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      document.getElementById('active-season-label').textContent = year + ' Season';
+      document.getElementById('active-record').textContent = '—';
+      document.getElementById('roster-body').innerHTML = '<tr><td colspan="6" style="text-align:center;color:#555;padding:24px;">Loading...</td></tr>';
+      document.getElementById('schedule-list').innerHTML = '<div style="color:#555;font-size:14px;padding:16px 0;">Loading...</div>';
+
+      const { players, games } = await loadSeason(year);
+      renderRoster(players, year);
+      renderSchedule(games);
+      document.getElementById('active-record').textContent = computeRecord(games);
+    }
+
+    // Load 2025 on page open
+    switchSeason(2025, document.querySelector('.tab-btn.active'));
+  </script>
+  </body>
+</html>
