@@ -48,3 +48,8 @@ No build step — open `index.html` directly in a browser or use VS Code Live Se
 ## End of Session Protocol
 
 At the end of every working session, run a `git add . && git commit && git push` to save all progress to GitHub. A session is over when the user says something like "done for today", "good work", "see you later", or the exact phrase **"Good work today"**.
+
+## User Preferences
+
+- **Calendar:** When the user asks to add something to "my calendar" or "the calendar", they mean **Apple Calendar**. Deliver an `.ics` file they can open on their iPhone/Mac to import into Apple Calendar.
+- **Summer work hours:** The user's summer work shifts run **10:00 AM – 5:00 PM** unless the schedule specifies different times (e.g. "lily 10-2:30"). Use 10–5 as the default when adding shifts to the calendar.
